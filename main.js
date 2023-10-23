@@ -12,6 +12,7 @@ async function insertdataOpenWeather(dados) {
 
 async function insertdataAirVisual(dados) {
     document.querySelector(".poluition").innerHTML = "Nível de poluição próximo a você: " + dados.data.current.pollution.aqicn;
+    document.querySelector(".city-poluition").innerHTML = "Cidade mais próxima:" + dados.data.city;
     
     // Categoria do AQI
     const aqi = dados.data.current.pollution.aqicn;
