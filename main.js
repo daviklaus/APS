@@ -28,7 +28,7 @@ async function buscarDados(cidade, apiKeyOpenWeather, apiKeyAirVisual) {
         insertdataOpenWeather(dataOpenWeather);
 
         // Chamada para AirVisual
-        const urlAirVisual = `http://api.airvisual.com/v2/nearest_city?key=${apiKeyAirVisual}`;
+        const urlAirVisual = `https://api.airvisual.com/v2/nearest_city?key=${apiKeyAirVisual}`;
         const responseAirVisual = await fetch(urlAirVisual);
         const dataAirVisual = await responseAirVisual.json();
         insertdataAirVisual(dataAirVisual);
