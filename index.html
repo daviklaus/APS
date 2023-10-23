@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"  rel="stylesheet">
+    <script src="main.js"></script>
+    <script src="ImageAPI.js"></script>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="box-title">
+            <h2 class="title" style="text-align: center;"> <img
+                    src="https://cdn-icons-png.flaticon.com/512/1610/1610215.png" style="text-align: center;"
+                    width="55px" height="55px" alt="IMG-Icon">Meteorologia</h2>
+            <input class="input-textcity" placeholder="Busque por uma cidade" />
+            
+            <button class="botao-buscar" onclick="clickNoBotao()">
+                <img class="img-buscar" src="https://www.svgrepo.com/show/488200/find.svg" alt="img-buscar">
+            </button>
+        </div>
+    </header>
+    <div class="box-maximo">
+
+        <div class="box-medium">
+            <h1 class="title-box-maximo">Previsão Atual</h1>
+            <br><br>
+            <h2 class="title-city">Tempo em --</h2>
+            <p class="title-temp">--</p>
+            <div class="box-mini">
+                <img class="img-previsao" src="https://openweathermap.org/img/wn/04n.png" width="50" height="50"
+                    alt="img-tempo">
+                <p class="title-previsao">--</p>
+                <p class="title-umidade">Umidade: --%</p>
+                <p id="dataAtualDisplay"></p>
+            </div>
+        </div>
+    </div>
+    <div class="box-maximo2">
+        <h1 class="title-box-maximo" style="text-align: center;">Nível de Poluição</style>
+        </h1>
+        <p class="poluition">Nível de poluição próximo a você:  --</p>
+        <p class="poluition-disc">Descrição: --</p>
+    </div>
+
+</body>
+
+</html>
