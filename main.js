@@ -25,7 +25,7 @@ async function buscarDados(cidade, apiKeyOpenWeather) {
 }
 async function insertdataAirVisual(dados) {
     document.querySelector(".poluition").innerHTML = "Nível de poluição próximo a você: " + dados.data.current.pollution.aqicn;
-    document.querySelector(".city-poluition").innerHTML = "Cidade mais próxima:" + dados.data.city;
+    document.querySelector(".city-poluition").innerHTML = "Cidade mais próxima: " + dados.data.city;
 
     // Categoria do AQI
     const aqi = dados.data.current.pollution.aqicn;
@@ -47,9 +47,9 @@ async function iniciarApp() {
 
 function categorizarAQI(aqi) {
     if (aqi >= 0 && aqi <= 50) {
-        return 'Você está em uma área com uma excelente qualidade do ar. A qualidade do ar é boa para a saúde e não representa riscos.';
+        return 'Você está em uma área com uma excelente qualidade do ar.';
     } else if (aqi >= 51 && aqi <= 100) {
-        return 'A qualidade do ar é aceitável, mas pode afetar pessoas sensíveis. Não há necessidade de precauções.';
+        return 'A qualidade do ar é aceitável, mas pode afetar pessoas sensíveis.';
     } else if (aqi >= 101 && aqi <= 150) {
         return 'A qualidade do ar é aceitável; no entanto, pode ser prejudicial para pessoas sensíveis, como crianças e idosos.';
     } else if (aqi >= 151 && aqi <= 200) {
