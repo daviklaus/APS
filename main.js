@@ -10,32 +10,38 @@ async function insertdataOpenWeather(dados) {
     document.querySelector(".img-previsao").src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`;
 }
 
-async function insertdataAirVisual(dados) {
-    document.querySelector(".poluition").innerHTML = "Nível de poluição próximo a você: " + dados.data.current.pollution.aqicn;
-    document.querySelector(".city-poluition").innerHTML = "Cidade mais próxima:" + dados.data.city;
-    
-    // Categoria do AQI
-    const aqi = dados.data.current.pollution.aqicn;
-    const categoriaAQI = categorizarAQI(aqi);
-    document.querySelector(".poluition-disc").innerHTML = `Descrição: ${categoriaAQI}`;
-}
 
-async function buscarDados(cidade, apiKeyOpenWeather, apiKeyAirVisual) {
+
+async function buscarDados(cidade, apiKeyOpenWeather) {
     try {
         // Chamada para OpenWeather
         const urlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKeyOpenWeather}&lang=pt_br&units=metric`;
         const responseOpenWeather = await fetch(urlOpenWeather);
         const dataOpenWeather = await responseOpenWeather.json();
         insertdataOpenWeather(dataOpenWeather);
+    } catch (error) {
+        console.error('Erro ao buscar dados do OpenWeather:', error);
+    }
+}
+async function insertdataAirVisual(dados) {
+    document.querySelector(".poluition").innerHTML = "Nível de poluição próximo a você: " + dados.data.current.pollution.aqicn;
+    document.querySelector(".city-poluition").innerHTML = "Cidade mais próxima:" + dados.data.city;
 
+    // Categoria do AQI
+    const aqi = dados.data.current.pollution.aqicn;
+    const categoriaAQI = categorizarAQI(aqi);
+    document.querySelector(".poluition-disc").innerHTML = `Descrição: ${categoriaAQI}`;
+}
+
+async function iniciarApp() {
+    try {
         // Chamada para AirVisual
-        const urlAirVisual = `https://api.airvisual.com/v2/nearest_city?key=${apiKeyAirVisual}`;
+        const urlAirVisual = `https://api.airvisual.com/v2/nearest_city?key=${keyAirVisual}`;
         const responseAirVisual = await fetch(urlAirVisual);
         const dataAirVisual = await responseAirVisual.json();
         insertdataAirVisual(dataAirVisual);
-
     } catch (error) {
-        console.error('Erro ao buscar dados:', error);
+        console.error('Erro ao buscar dados do AirVisual:', error);
     }
 }
 
